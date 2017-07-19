@@ -1,0 +1,8 @@
+emc-0.6 (Jan 28, 2008):
+	* Fixed bugs in scatterer.h and pol_montecarlo.h
+
+emc-0.5a (Feb 15, 2005):
+	* Removed unused header file "netcdfcpp.h" in deplength.cpp and updated the Makefile accordingly.
+
+emc-0.5 (Feb 2, 2005):
+	* First public release.
