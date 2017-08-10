@@ -20,7 +20,7 @@ const int MAXSCT=1000;
 double S[NN][NN][4];
 double EE[NN][NN][4];
 static long prephotons=0;	// number of photons used in previous simulations
-static long photons=100000000;      // number of photons to use in the current simulation
+static long photons=1000000000;      // number of photons to use in the current simulation
 				// 45mins in the mode 2
 
 // convert parallel E1 and perpendicular E2 to Stokes vector
