@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <complex>
-#include <fstream.h>
+#include <fstream>
 #include "mtwist.h"
 #include "scatterer.h"
 
@@ -28,7 +28,7 @@ public:
     photonPacket(const scatterer* sct, char* fname=NULL, unsigned long seed=0) : sct(sct), albedo(sct->albedo()), csca(sct->csca()), psca0(sct->psca0) {
 	mtrand = new mt_prng();
 	if (fname != NULL) {
-	    ifstream stateIn(fname);
+	    std::ifstream stateIn(fname);
 	    if( stateIn ) {
 		stateIn >> *mtrand;
 		stateIn.close();
@@ -58,7 +58,7 @@ public:
 
     void saveRand(char* fname) const {
 	// A stream is convenient for saving to a file.
-	ofstream stateOut(fname);
+	std::ofstream stateOut(fname);
 	if( stateOut ) {
 	    stateOut << *mtrand;
 	    stateOut.close();

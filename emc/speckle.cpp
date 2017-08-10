@@ -1,8 +1,9 @@
 #include "pol_montecarlo.h"
 #include "netcdfcpp.h"
 #include <math.h>
-#include <iostream.h>
+#include <iostream>
 #include <unistd.h>
+
 
 // Remember all the length and time units are in mfp=lsa.
 const double n_water=1.33;
@@ -19,7 +20,7 @@ const int MAXSCT=1000;
 double S[NN][NN][4];
 double EE[NN][NN][4];
 static long prephotons=0;	// number of photons used in previous simulations
-static long photons=10000;      // number of photons to use in the current simulation
+static long photons=100000000;      // number of photons to use in the current simulation
 				// 45mins in the mode 2
 
 // convert parallel E1 and perpendicular E2 to Stokes vector
@@ -38,7 +39,7 @@ static int write_results(const char* fname)
 
     // Check if the file was opened
     if (! nc.is_valid()) {
-	cerr << "can't create netCDF file " << fname << "\n";
+	std::cerr << "can't create netCDF file " << fname << "\n";
 	return 0;
     }
 
@@ -76,7 +77,7 @@ static int load_results(const char* fname)
 
     // Check if the file was opened
     if (! nc.is_valid()) {
-	cerr << "can't open netCDF file " << fname << "\n";
+	std::cerr << "can't open netCDF file " << fname << "\n";
 	return 0;
     }
 
@@ -131,7 +132,7 @@ int main (int argc, char** argv)
     else
 	ph = new photonPacket(&sct);
 
-    for (int cno = 0; cno < 4; cno++) {
+    for (int cno = 0; cno < 1; cno++) {
 	T = R = Lost = 0;	// reset counters
 	for (ix=0; ix<NN; ix++)
 	    for (iy=0; iy<NN; iy++)
